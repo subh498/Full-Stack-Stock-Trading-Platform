@@ -55,6 +55,16 @@ function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
+                <a
+                  className="nav-link active text-primary font-weight-bold"
+                  href="http://localhost:3001"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i className="fa fa-line-chart mr-1"></i> Dashboard
+                </a>
+              </li>
+              <li className="nav-item">
                 <a className="nav-link active" href="/">
                   <i className="fa fa-bars"></i>
                 </a>

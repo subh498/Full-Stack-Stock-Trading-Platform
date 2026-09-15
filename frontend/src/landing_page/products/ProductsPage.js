@@ -14,7 +14,7 @@ function PricingPage() {
         imageURL="media/images/kite.png"
         productName="Kite"
         productDesription="Our ultra-fast flagship trading platform with streaming market data, advanced charts, an elegant UI, and more. Enjoy the Kite experience seamlessly on your Android and iOS devices."
-        tryDemo=""
+        tryDemo="http://localhost:3001"
         learnMore=""
         googlePlay=""
         appStore=""
