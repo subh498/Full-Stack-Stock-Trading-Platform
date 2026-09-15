@@ -11,7 +11,7 @@ const { PositionsModel } = require("./model/PositionsModel");
 const { OrdersModel } = require("./model/OrdersModel");
 
 const PORT = process.env.PORT || 3002;
-const uri = process.env.MONGO_URL;
+const uri = process.env.MONGO_URI;
 
 const app = express();
 
@@ -221,9 +221,12 @@ app.post("/newOrder", async (req, res) => {
 app.listen(PORT, async () => {
   console.log(`App started on port ${PORT}!`);
   try {
-    await mongoose.connect(uri || "mongodb://127.0.0.1:27017/zerodha");
+    if (!uri) {
+      throw new Error("MONGO_URI environment variable is not defined.");
+    }
+    await mongoose.connect(uri);
     console.log("DB connected successfully!");
   } catch (err) {
-    console.error("DB connection error:", err);
+    console.error("DB connection error:", err.message);
   }
 });
