@@ -4,13 +4,13 @@ const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem("zerodha_theme") || "light";
+    return localStorage.getItem("nexvoro_theme") || "light";
   });
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     document.body.setAttribute("data-theme", theme);
-    localStorage.setItem("zerodha_theme", theme);
+    localStorage.setItem("nexvoro_theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {

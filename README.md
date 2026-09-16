@@ -1,31 +1,32 @@
-# Full-Stack Zerodha Kite Trading Platform
+# Nexvoro | Next-Generation Quantitative & Multi-Asset Trading Platform
 
-A unified, modern MERN-stack clone of the **Zerodha Kite** trading platform.
+A unified, modern full-stack MERN platform built for algorithmic and retail execution, featuring high-frequency simulated tickers, real-time portfolio tracking, margin accounting, and dual Dark/Light aesthetics.
 
 ---
 
-## 🌟 Key Features
+## 🌟 Key Platform Capabilities
 
 1. **Unified Full-Stack Architecture**:
    - Consolidated `backend` and `frontend` into a single, clean workspace with root orchestration.
    - Run both server and client with a single command: `npm run dev`.
 
-2. **Real Authentication & Protected Routes**:
+2. **Secure Authentication & Guarded Terminal**:
    - Secure JWT token-based authentication with `bcryptjs` password hashing.
-   - Protected route guarding on `/dashboard/*`: unauthenticated users are directed to login first.
-   - **One-Click Demo Trader Login** (`demo_trader` / `Password123!`) with ₹1,00,000 initial virtual margin.
-   - Full signup flow integrated directly with MongoDB.
+   - Protected route guarding on `/dashboard/*`: unauthenticated users are seamlessly directed to login.
+   - **One-Click Demo Trader Login** (`demo_trader` / `Password123!`) with ₹1,00,000 initial simulated trading capital.
+   - Self-service onboarding and registration integrated directly with MongoDB.
 
-3. **Real Database Operations & Trading Logic (No Hardcoded Data)**:
+3. **Real Database Operations & Trading Logic**:
    - **Watchlist**: Real-time simulated market price ticks with live price changes and flash indicators.
-   - **Order Execution**: Buying stock validates available margin, deducts cash from user's account in MongoDB, and automatically adds or updates weighted average cost in the user's `holdings` collection. Selling stock credits funds and reduces holding quantity.
-   - **Orders Book**: View real executed orders with a one-click **Cancel** button that cancels and removes the order in MongoDB.
-   - **Funds Management**: Real margin tracking with **+ Add Funds** modal (UPI simulation) and **Withdraw** options updating balance in database.
+   - **Order Execution**: Buying stock validates available margin, deducts capital from user's account in MongoDB, and automatically adds or updates weighted average cost in the user's holdings collection. Selling stock credits funds and reduces holding quantity.
+   - **Orders Book**: View real executed orders with a one-click **Cancel** button that removes and settles the order in MongoDB.
+   - **Capital & Funds Management**: Real margin tracking with **+ Add Funds** modal (UPI simulation) and **Withdraw** options updating balance in database.
    - **Portfolio Summary & Holdings**: Dynamically computed current values, total investments, and live P&L with responsive Chart.js visual charts.
 
-4. **Dynamic Modern UI with Dark & Light Mode**:
-   - Clean Zerodha Kite aesthetics with seamless **Dark Mode** and **Light Mode** toggle (Sun/Moon switch).
-   - Theme preference persists across browser reloads via `localStorage`.
+4. **FinTech Aesthetics with Adaptive Dark & Light Modes**:
+   - High-contrast electric blue, cyan, and emerald design system.
+   - Seamless **Dark Mode** and **Light Mode** toggle (Sun/Moon switch).
+   - Preference persists across browser reloads via `localStorage`.
    - Charts, tables, modals, and tickers automatically adapt their palettes to the active theme.
 
 ---
@@ -48,28 +49,28 @@ npm run seed
 ```bash
 npm run dev
 ```
-- **Frontend App**: `http://localhost:3000`
-  - Public Landing Pages: `http://localhost:3000/`
+- **Frontend Web Application**: `http://localhost:3000`
+  - Public Platform: `http://localhost:3000/`
   - Sign in: `http://localhost:3000/login`
   - Sign up: `http://localhost:3000/signup`
-  - Protected Trading Terminal: `http://localhost:3000/dashboard`
-- **Backend API**: `http://localhost:3002`
+  - Trading Terminal: `http://localhost:3000/dashboard`
+- **Backend API Engine**: `http://localhost:3002`
 
 ---
 
 ## 📂 Project Structure
 
 ```
-zerodha clone/
+nexvoro/
 ├── backend/                  # Node.js + Express + MongoDB REST API
-│   ├── index.js              # Server entry point with legacy & new REST endpoints
+│   ├── index.js              # Server entry point with REST endpoints
 │   ├── middleware/auth.js    # JWT verification middleware
 │   ├── model/                # Mongoose models (UserModel, HoldingsModel, etc.)
 │   ├── routes/
 │   │   ├── auth.js           # Register, Login, Demo-Login, Profile (/api/auth)
 │   │   └── trading.js        # Watchlist, Holdings, Positions, Orders, Funds (/api/*)
 │   ├── schemas/              # Mongoose database schemas
-│   ├── seed.js               # Database seeder
+│   ├── seed.js               # Database seeder (demo account & sample assets)
 │   └── .env                  # Port (3002) and MONGO_URI
 ├── frontend/                 # Unified React Single-Page Application
 │   ├── src/
@@ -79,13 +80,17 @@ zerodha clone/
 │   │   ├── components/
 │   │   │   ├── ProtectedRoute.js # Guards /dashboard routes
 │   │   │   └── ThemeToggle.js    # Sun/Moon switch
-│   │   ├── landing_page/         # Public marketing pages & auth screens
-│   │   │   ├── home/
-│   │   │   ├── login/            # Zerodha Kite login & Demo Login
-│   │   │   ├── signup/           # MongoDB registration
+│   │   ├── landing_page/         # Public platform pages & auth screens
+│   │   │   ├── home/             # Algorithmic & multi-asset trading hero
+│   │   │   ├── about/            # Nexvoro Research Group & Engineering
+│   │   │   ├── products/         # Nexvoro Web, Pulse, Quant API
+│   │   │   ├── pricing/          # Zero brokerage equity & transparent pricing
+│   │   │   ├── support/          # Nexvoro Support Portal & Knowledge Base
+│   │   │   ├── login/            # Nexvoro Trade login & Demo Login
+│   │   │   ├── signup/           # Account registration
 │   │   │   ├── Navbar.js         # Dynamic navbar with auth badge
-│   │   │   └── Footer.js
-│   │   ├── dashboard/            # Complete Kite Trading Terminal
+│   │   │   └── Footer.js         # Nexvoro Technologies disclaimer & links
+│   │   ├── dashboard/            # Nexvoro Trading Terminal
 │   │   │   ├── TopBar.js         # Live indices & user profile
 │   │   │   ├── Menu.js           # Tab navigation
 │   │   │   ├── WatchList.js      # Live market watchlist & search
@@ -97,10 +102,13 @@ zerodha clone/
 │   │   │   ├── BuyActionWindow.js# Order placement window
 │   │   │   ├── VerticalGraph.js  # Holdings bar chart
 │   │   │   ├── DoughnutChart.js  # Market allocation chart
-│   │   │   └── Dashboard.css     # Dark/Light mode Kite styling
+│   │   │   └── Dashboard.css     # Nexvoro terminal styling
 │   │   ├── config.js             # API base URL configuration
-│   │   ├── index.css             # Theme design system CSS tokens
+│   │   ├── index.css             # Nexvoro theme design system CSS tokens
 │   │   └── index.js              # Main route dispatcher
+│   └── public/
+│       ├── media/images/         # Vector brand assets & emblems
+│       └── index.html            # Main HTML wrapper
 └── package.json              # Root orchestrator script
 ```
 
@@ -109,4 +117,4 @@ zerodha clone/
 ## 🔑 Demo Account Credentials
 - **User ID / Username**: `demo_trader`
 - **Password**: `Password123!`
-- *(Or click the green **"⚡ One-Click Demo Trader Login"** button on the login screen for instant access!)*
+- *(Or click the **"⚡ One-Click Demo Trader Login"** button on the login screen for instant access!)*

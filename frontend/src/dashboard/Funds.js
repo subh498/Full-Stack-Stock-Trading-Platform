@@ -227,7 +227,7 @@ const Funds = () => {
 
                 <p className="text-muted small mb-0">
                   {modalType === "ADD"
-                    ? "Funds will be credited immediately to your Zerodha trading account."
+                    ? "Funds will be credited immediately to your Nexvoro trading account."
                     : `Available to withdraw: ₹${formatCurrency(currentAvailable)}`}
                 </p>
               </div>

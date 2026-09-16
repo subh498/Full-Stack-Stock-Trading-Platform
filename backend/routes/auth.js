@@ -69,7 +69,7 @@ router.post("/register", async (req, res) => {
 
     res.status(201).json({
       success: true,
-      message: "Registration successful! Welcome to Zerodha Kite.",
+      message: "Registration successful! Welcome to Nexvoro Trade.",
       token,
       user: {
         id: savedUser._id,
@@ -143,7 +143,7 @@ router.post("/demo-login", async (req, res) => {
       user = new UserModel({
         fullName: "Demo Trader",
         username: demoUsername,
-        email: "demo@zerodha-kite.com",
+        email: "demo@nexvoro.com",
         password: hashedPassword,
         funds: 100000,
       });

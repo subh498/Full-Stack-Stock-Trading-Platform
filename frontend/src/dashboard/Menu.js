@@ -41,7 +41,7 @@ const Menu = () => {
     <div className="menu-container">
       <div className="menu-logo-wrap">
         <Link to="/dashboard">
-          <img src="/media/images/logo.svg" className="menu-logo" alt="Zerodha Kite" />
+          <img src="/media/images/logo.svg" className="menu-logo" alt="Nexvoro Trade" />
         </Link>
       </div>
 
@@ -130,7 +130,7 @@ const Menu = () => {
                   style={{ fontSize: "0.82rem", display: "block", marginBottom: "6px" }}
                   onClick={() => setDropdownOpen(false)}
                 >
-                  🌐 Zerodha Public Site
+                  🌐 Nexvoro Website
                 </Link>
               </div>
 
@@ -139,7 +139,7 @@ const Menu = () => {
                 className="dropdown-logout-btn"
                 onClick={handleLogout}
               >
-                Sign out of Kite
+                Sign out of Nexvoro
               </button>
             </div>
           )}

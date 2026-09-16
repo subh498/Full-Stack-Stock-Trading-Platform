@@ -58,10 +58,10 @@ function Signup() {
             style={{ width: "90%", maxWidth: "480px" }}
           />
           <h3 className="fs-4 mt-4 fw-bold" style={{ color: "var(--text-primary, #333)" }}>
-            Zero brokerage on stock investments
+            Zero Commission on Equity Investments
           </h3>
           <p className="text-muted small">
-            Join 1.5+ Crore investors and trade with India's most advanced platform.
+            Join modern investors trading with Nexvoro's ultra-low latency execution gateway.
           </p>
         </div>
 
@@ -72,11 +72,12 @@ function Signup() {
               background: "var(--card-bg, #ffffff)",
               border: "1px solid var(--border-color, #e0e3eb)",
               color: "var(--text-primary, #333333)",
+              borderRadius: "12px",
             }}
           >
-            <h1 className="fs-3 mb-2 fw-bold">Signup now</h1>
+            <h1 className="fs-3 mb-2 fw-bold">Open Nexvoro Account</h1>
             <p className="text-muted small mb-4">
-              Open a free demat and trading account in under 2 minutes
+              Instant digital demat &amp; trading access in under 2 minutes
             </p>
 
             {error && (
@@ -143,13 +144,13 @@ function Signup() {
                 type="submit"
                 className="btn btn-primary w-100 py-2 fw-semibold"
                 style={{
-                  background: "var(--accent-primary, #387ed1)",
-                  borderColor: "var(--accent-primary, #387ed1)",
-                  borderRadius: "4px",
+                  background: "var(--accent-primary, #2563eb)",
+                  borderColor: "var(--accent-primary, #2563eb)",
+                  borderRadius: "6px",
                 }}
                 disabled={submitting}
               >
-                {submitting ? "Creating Account..." : "Complete Signup & Start Trading"}
+                {submitting ? "Opening Account..." : "Create Account & Start Trading"}
               </button>
             </form>
 
@@ -157,7 +158,7 @@ function Signup() {
               <p className="text-muted small mb-0">
                 Already have an account?{" "}
                 <Link to="/login" className="text-primary fw-bold text-decoration-none">
-                  Sign in to Kite &rarr;
+                  Sign in to Nexvoro Trade &rarr;
                 </Link>
               </p>
             </div>

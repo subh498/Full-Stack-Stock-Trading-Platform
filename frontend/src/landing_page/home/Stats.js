@@ -3,46 +3,63 @@ import { Link } from "react-router-dom";
 
 function Stats() {
   return (
-    <div className="container p-3">
-      <div className="row p-5">
-        <div className="col-6 p-5">
-          <h1 className="fs-2 mb-5">Trust with confidence</h1>
-          <h2 className="fs-4">Customer-first always</h2>
-          <p className="text-muted">
-            That's why 1.3+ crore customers trust Zerodha with ₹3.5+ lakh crores
-            worth of equity investments.
-          </p>
-          <h2 className="fs-4">No spam or gimmicks</h2>
-          <p className="text-muted">
-            No gimmicks, spam, "gamification", or annoying push notifications.
-            High quality apps that you use at your pace, the way you like.
-          </p>
-          <h2 className="fs-4">The Zerodha universe</h2>
-          <p className="text-muted">
-            Not just an app, but a whole ecosystem. Our investments in 30+
-            fintech startups offer you tailored services specific to your needs.
-          </p>
-          <h2 className="fs-4">Do better with money</h2>
-          <p className="text-muted">
-            With initiatives like Nudge and Kill Switch, we don't just
-            facilitate transactions, but actively help you do better with your
-            money.
-          </p>
+    <div className="container py-4">
+      <div className="row align-items-center g-5 py-5">
+        <div className="col-lg-6">
+          <h2 className="fs-2 fw-bold mb-4" style={{ color: "var(--text-primary)" }}>
+            Engineered for Precision, Scale &amp; Speed
+          </h2>
+
+          <div className="mb-4">
+            <h4 className="fs-5 fw-semibold" style={{ color: "var(--text-primary)" }}>
+              Sub-Millisecond Order Routing
+            </h4>
+            <p className="text-muted small">
+              Our proprietary matching gateway minimizes slippage and delivers lightning-fast execution across NSE, BSE, and MCX markets.
+            </p>
+          </div>
+
+          <div className="mb-4">
+            <h4 className="fs-5 fw-semibold" style={{ color: "var(--text-primary)" }}>
+              Institutional-Grade Risk Architecture
+            </h4>
+            <p className="text-muted small">
+              Automated real-time margin computation, pre-trade risk checks, and dynamic portfolio stress-testing keep your capital secure.
+            </p>
+          </div>
+
+          <div className="mb-4">
+            <h4 className="fs-5 fw-semibold" style={{ color: "var(--text-primary)" }}>
+              The Nexvoro Ecosystem
+            </h4>
+            <p className="text-muted small">
+              An integrated universe of quantitative analysis tools, open REST &amp; WebSocket APIs, and automated backtesting frameworks.
+            </p>
+          </div>
+
+          <div className="mb-4">
+            <h4 className="fs-5 fw-semibold" style={{ color: "var(--text-primary)" }}>
+              Zero Commission &amp; Transparent Margins
+            </h4>
+            <p className="text-muted small">
+              ₹0 brokerage on equity delivery investments and flat ₹20 for high-frequency intraday and F&amp;O trades with no hidden markup.
+            </p>
+          </div>
         </div>
-        <div className="col-6 p-5">
-          <img src="media/images/ecosystem.png" alt="Ecosystem" style={{ width: "90%" }} />
-          <div className="text-center">
-            <Link to="/product" className="mx-5" style={{ textDecoration: "none" }}>
-              Explore our products{" "}
-              <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+
+        <div className="col-lg-6 text-center">
+          <img
+            src="/media/images/ecosystem.png"
+            alt="Nexvoro Ecosystem"
+            className="img-fluid mb-4"
+            style={{ maxWidth: "85%" }}
+          />
+          <div className="d-flex justify-content-center gap-4">
+            <Link to="/product" className="fw-semibold text-decoration-none">
+              Explore Products &rarr;
             </Link>
-            <Link
-              to="/dashboard"
-              className="mx-5"
-              style={{ textDecoration: "none" }}
-            >
-              Try Kite demo{" "}
-              <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <Link to="/dashboard" className="fw-semibold text-primary text-decoration-none">
+              ⚡ Launch Nexvoro Terminal &rarr;
             </Link>
           </div>
         </div>

@@ -5,9 +5,9 @@ import { API_BASE_URL } from "../config";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [token, setToken] = useState(() => localStorage.getItem("zerodha_token"));
+  const [token, setToken] = useState(() => localStorage.getItem("nexvoro_token"));
   const [user, setUser] = useState(() => {
-    const saved = localStorage.getItem("zerodha_user");
+    const saved = localStorage.getItem("nexvoro_user");
     try {
       return saved ? JSON.parse(saved) : null;
     } catch {
@@ -20,11 +20,11 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     if (token) {
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-      localStorage.setItem("zerodha_token", token);
+      localStorage.setItem("nexvoro_token", token);
     } else {
       delete axios.defaults.headers.common["Authorization"];
-      localStorage.removeItem("zerodha_token");
-      localStorage.removeItem("zerodha_user");
+      localStorage.removeItem("nexvoro_token");
+      localStorage.removeItem("nexvoro_user");
     }
   }, [token]);
 
@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
         const res = await axios.get(`${API_BASE_URL}/api/auth/me`);
         if (res.data?.success && res.data?.user) {
           setUser(res.data.user);
-          localStorage.setItem("zerodha_user", JSON.stringify(res.data.user));
+          localStorage.setItem("nexvoro_user", JSON.stringify(res.data.user));
         }
       } catch (err) {
         console.warn("Session expired or invalid token:", err.response?.data?.error || err.message);
@@ -61,8 +61,8 @@ export const AuthProvider = ({ children }) => {
     if (res.data?.token) {
       setToken(res.data.token);
       setUser(res.data.user);
-      localStorage.setItem("zerodha_token", res.data.token);
-      localStorage.setItem("zerodha_user", JSON.stringify(res.data.user));
+      localStorage.setItem("nexvoro_token", res.data.token);
+      localStorage.setItem("nexvoro_user", JSON.stringify(res.data.user));
     }
     return res.data;
   };
@@ -72,8 +72,8 @@ export const AuthProvider = ({ children }) => {
     if (res.data?.token) {
       setToken(res.data.token);
       setUser(res.data.user);
-      localStorage.setItem("zerodha_token", res.data.token);
-      localStorage.setItem("zerodha_user", JSON.stringify(res.data.user));
+      localStorage.setItem("nexvoro_token", res.data.token);
+      localStorage.setItem("nexvoro_user", JSON.stringify(res.data.user));
     }
     return res.data;
   };
@@ -83,8 +83,8 @@ export const AuthProvider = ({ children }) => {
     if (res.data?.token) {
       setToken(res.data.token);
       setUser(res.data.user);
-      localStorage.setItem("zerodha_token", res.data.token);
-      localStorage.setItem("zerodha_user", JSON.stringify(res.data.user));
+      localStorage.setItem("nexvoro_token", res.data.token);
+      localStorage.setItem("nexvoro_user", JSON.stringify(res.data.user));
     }
     return res.data;
   };
@@ -92,8 +92,8 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setToken(null);
     setUser(null);
-    localStorage.removeItem("zerodha_token");
-    localStorage.removeItem("zerodha_user");
+    localStorage.removeItem("nexvoro_token");
+    localStorage.removeItem("nexvoro_user");
     delete axios.defaults.headers.common["Authorization"];
   };
 
@@ -101,7 +101,7 @@ export const AuthProvider = ({ children }) => {
     setUser((prev) => {
       if (!prev) return prev;
       const updated = { ...prev, funds: newFunds };
-      localStorage.setItem("zerodha_user", JSON.stringify(updated));
+      localStorage.setItem("nexvoro_user", JSON.stringify(updated));
       return updated;
     });
   };
@@ -112,7 +112,7 @@ export const AuthProvider = ({ children }) => {
       const res = await axios.get(`${API_BASE_URL}/api/auth/me`);
       if (res.data?.success && res.data?.user) {
         setUser(res.data.user);
-        localStorage.setItem("zerodha_user", JSON.stringify(res.data.user));
+        localStorage.setItem("nexvoro_user", JSON.stringify(res.data.user));
       }
     } catch (err) {
       console.error("Failed to refresh user:", err);

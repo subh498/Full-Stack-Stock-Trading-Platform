@@ -1,7 +1,7 @@
 {
   "name": "full-stack-stock-trading-platform",
   "version": "1.0.0",
-  "description": "Full-Stack Zerodha Kite Clone Trading Platform",
+  "description": "Nexvoro: Next-Gen Institutional-Grade Multi-Asset Trading Platform",
   "scripts": {
     "dev": "concurrently -n \"BACKEND,FRONTEND\" -c \"bgBlue.bold,bgGreen.bold\" \"npm run dev --prefix backend\" \"npm start --prefix frontend\"",
     "start": "concurrently -n \"BACKEND,FRONTEND\" -c \"bgBlue.bold,bgGreen.bold\" \"npm start --prefix backend\" \"npm start --prefix frontend\"",

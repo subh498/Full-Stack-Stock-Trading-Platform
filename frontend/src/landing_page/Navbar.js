@@ -22,11 +22,11 @@ function Navbar() {
       }}
     >
       <div className="container">
-        <Link className="navbar-brand d-flex align-items-center" to="/">
+        <Link className="navbar-brand d-flex align-items-center gap-2" to="/">
           <img
             src="/media/images/logo.svg"
-            style={{ height: "18px" }}
-            alt="Zerodha"
+            style={{ height: "24px", width: "auto" }}
+            alt="Nexvoro"
           />
         </Link>
 
@@ -75,37 +75,39 @@ function Navbar() {
                     to="/dashboard"
                     className="btn btn-primary btn-sm px-3 py-1 fw-semibold d-flex align-items-center gap-2"
                     style={{
-                      backgroundColor: "var(--accent-primary, #387ed1)",
-                      borderColor: "var(--accent-primary, #387ed1)",
-                      borderRadius: "4px",
+                      backgroundColor: "var(--accent-primary, #2563eb)",
+                      borderColor: "var(--accent-primary, #2563eb)",
+                      borderRadius: "6px",
+                      boxShadow: "0 2px 8px rgba(37, 99, 235, 0.25)",
                     }}
                   >
-                    <span>📊 Kite Dashboard</span>
+                    <span>⚡ Nexvoro Terminal</span>
                   </Link>
                 </li>
                 <li className="nav-item ms-lg-2 dropdown">
                   <div className="d-flex align-items-center gap-2 py-1 px-2">
                     <span
                       style={{
-                        width: "28px",
-                        height: "28px",
+                        width: "30px",
+                        height: "30px",
                         borderRadius: "50%",
-                        backgroundColor: "#e8f0fe",
-                        color: "#1a73e8",
+                        backgroundColor: "#e0f2fe",
+                        color: "#0369a1",
                         display: "inline-flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        fontSize: "0.75rem",
+                        fontSize: "0.78rem",
                         fontWeight: 700,
+                        border: "1px solid #bae6fd",
                       }}
                     >
-                      {user?.username?.slice(0, 2)?.toUpperCase() || "TR"}
+                      {user?.username?.slice(0, 2)?.toUpperCase() || "NV"}
                     </span>
                     <button
                       onClick={handleLogout}
-                      className="btn btn-outline-secondary btn-sm py-0 px-2"
-                      style={{ fontSize: "0.8rem" }}
-                      title="Log out"
+                      className="btn btn-outline-secondary btn-sm py-1 px-2"
+                      style={{ fontSize: "0.78rem", borderRadius: "4px" }}
+                      title="Log out of Nexvoro"
                     >
                       Logout
                     </button>
@@ -116,7 +118,7 @@ function Navbar() {
               <>
                 <li className="nav-item ms-lg-2">
                   <Link className="nav-link fw-semibold text-primary" to="/login">
-                    Login
+                    Sign in
                   </Link>
                 </li>
                 <li className="nav-item ms-lg-1">
@@ -124,12 +126,12 @@ function Navbar() {
                     className="btn btn-primary btn-sm px-3 py-1 fw-semibold"
                     to="/signup"
                     style={{
-                      backgroundColor: "var(--accent-primary, #387ed1)",
-                      borderColor: "var(--accent-primary, #387ed1)",
-                      borderRadius: "4px",
+                      backgroundColor: "var(--accent-primary, #2563eb)",
+                      borderColor: "var(--accent-primary, #2563eb)",
+                      borderRadius: "6px",
                     }}
                   >
-                    Sign up
+                    Get Started
                   </Link>
                 </li>
               </>

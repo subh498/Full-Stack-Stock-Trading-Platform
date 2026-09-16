@@ -18,7 +18,7 @@ import NotFound from "./landing_page/NotFound";
 import Navbar from "./landing_page/Navbar";
 import Footer from "./landing_page/Footer";
 
-import KiteHome from "./dashboard/Home";
+import NexvoroHome from "./dashboard/Home";
 
 // Layout wrapper for public marketing & authentication pages
 const PublicLayout = ({ children }) => {
@@ -96,12 +96,12 @@ root.render(
               }
             />
 
-            {/* Protected Kite Trading Terminal */}
+            {/* Protected Nexvoro Trading Terminal */}
             <Route
               path="/dashboard/*"
               element={
                 <ProtectedRoute>
-                  <KiteHome />
+                  <NexvoroHome />
                 </ProtectedRoute>
               }
             />

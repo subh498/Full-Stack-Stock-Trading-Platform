@@ -5,20 +5,23 @@ function OpenAccount() {
   const navigate = useNavigate();
 
   return (
-    <div className="container p-5 mb-5">
-      <div className="row text-center">
-        <h1 className="mt-5">Open a Zerodha account</h1>
-        <p>
-          Modern platforms and apps, ₹0 investments, and flat ₹20 intraday and
-          F&O trades.
-        </p>
-        <button
-          className="p-2 btn btn-primary fs-5 mb-5"
-          style={{ minWidth: "180px", width: "20%", margin: "0 auto" }}
-          onClick={() => navigate("/signup")}
-        >
-          Sign up Now
-        </button>
+    <div className="container py-5 my-3">
+      <div className="row text-center justify-content-center">
+        <div className="col-lg-8">
+          <h2 className="fs-1 fw-bold mt-4 mb-3" style={{ color: "var(--text-primary)" }}>
+            Open a Nexvoro Account
+          </h2>
+          <p className="text-muted fs-5 mb-4">
+            Modern trading infrastructure, ₹0 equity investment brokerage, and flat ₹20 for intraday and F&amp;O trades.
+          </p>
+          <button
+            className="btn btn-primary px-4 py-2 fs-6 fw-semibold mb-4"
+            style={{ minWidth: "200px", borderRadius: "6px" }}
+            onClick={() => navigate("/signup")}
+          >
+            Start Trading with Nexvoro &rarr;
+          </button>
+        </div>
       </div>
     </div>
   );

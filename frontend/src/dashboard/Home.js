@@ -3,7 +3,7 @@ import TopBar from "./TopBar";
 import Dashboard from "./Dashboard";
 import "./Dashboard.css";
 
-const KiteHome = () => {
+const NexvoroHome = () => {
   return (
     <div className="dashboard-root">
       <TopBar />
@@ -12,4 +12,4 @@ const KiteHome = () => {
   );
 };
 
-export default KiteHome;
+export default NexvoroHome;

@@ -5,45 +5,52 @@ function Universe() {
   const navigate = useNavigate();
 
   return (
-    <div className="container mt-5">
-      <div className="row text-center">
-        <h1>The Zerodha Universe</h1>
-        <p>
-          Extend your trading and investment experience even further with our
-          partner platforms
+    <div className="container py-5 my-4">
+      <div className="row text-center justify-content-center">
+        <h2 className="fs-1 fw-bold" style={{ color: "var(--text-primary)" }}>
+          The Nexvoro Ecosystem
+        </h2>
+        <p className="text-muted small mb-5">
+          Supercharge your capital allocation with specialized algorithmic and thematic trading integrations.
         </p>
 
-        <div className="col-4 p-3 mt-5">
-          <img src="media/images/smallcaseLogo.png" alt="smallcase" />
-          <p className="text-small text-muted">Thematic investment platform</p>
+        <div className="col-md-4 p-3">
+          <img src="/media/images/smallcaseLogo.png" alt="smallcase" className="img-fluid mb-2" style={{ maxHeight: "45px" }} />
+          <p className="text-muted small">Thematic Portfolio Baskets</p>
         </div>
-        <div className="col-4 p-3 mt-5">
-          <img src="media/images/streakLogo.png" alt="streak" />
-          <p className="text-small text-muted">Algo & strategy platform</p>
+        <div className="col-md-4 p-3">
+          <img src="/media/images/streakLogo.png" alt="streak" className="img-fluid mb-2" style={{ maxHeight: "45px" }} />
+          <p className="text-muted small">Quantitative Algo &amp; Strategy Engine</p>
         </div>
-        <div className="col-4 p-3 mt-5">
-          <img src="media/images/sensibullLogo.svg" alt="sensibull" style={{ width: "50%" }} />
-          <p className="text-small text-muted">Options trading platform</p>
+        <div className="col-md-4 p-3">
+          <img src="/media/images/sensibullLogo.svg" alt="sensibull" className="img-fluid mb-2" style={{ maxHeight: "36px" }} />
+          <p className="text-muted small">Advanced Options &amp; Greeks Visualizer</p>
         </div>
-        <div className="col-4 p-3 mt-5">
-          <img src="media/images/zerodhaFundhouse.png" alt="zerodha fund house" style={{ width: "50%" }} />
-          <p className="text-small text-muted">Asset management</p>
+        <div className="col-md-4 p-3 mt-md-4">
+          <div className="d-flex align-items-center justify-content-center gap-2 mb-2">
+            <span style={{ fontSize: "1.8rem" }}>🏛️</span>
+            <span className="fw-bold fs-5" style={{ color: "var(--text-primary)" }}>Nexvoro Capital</span>
+          </div>
+          <p className="text-muted small">Automated Index &amp; Asset Management</p>
         </div>
-        <div className="col-4 p-3 mt-5">
-          <img src="media/images/goldenpiLogo.png" alt="goldenpi" />
-          <p className="text-small text-muted">Bonds trading platform</p>
+        <div className="col-md-4 p-3 mt-md-4">
+          <img src="/media/images/goldenpiLogo.png" alt="goldenpi" className="img-fluid mb-2" style={{ maxHeight: "45px" }} />
+          <p className="text-muted small">Fixed Income &amp; Corporate Bonds</p>
         </div>
-        <div className="col-4 p-3 mt-5">
-          <img src="media/images/dittoLogo.png" alt="ditto" style={{ width: "30%" }} />
-          <p className="text-small text-muted">Insurance advisory</p>
+        <div className="col-md-4 p-3 mt-md-4">
+          <img src="/media/images/dittoLogo.png" alt="ditto" className="img-fluid mb-2" style={{ maxHeight: "40px" }} />
+          <p className="text-muted small">Transparent Insurance Advisory</p>
         </div>
-        <button
-          className="p-2 btn btn-primary fs-5 mb-5"
-          style={{ minWidth: "180px", width: "20%", margin: "0 auto" }}
-          onClick={() => navigate("/signup")}
-        >
-          Signup Now
-        </button>
+
+        <div className="col-12 mt-5">
+          <button
+            className="btn btn-primary px-4 py-2 fs-6 fw-semibold"
+            style={{ minWidth: "200px", borderRadius: "6px" }}
+            onClick={() => navigate("/signup")}
+          >
+            Create Your Account Now &rarr;
+          </button>
+        </div>
       </div>
     </div>
   );

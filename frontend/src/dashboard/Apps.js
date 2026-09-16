@@ -42,7 +42,7 @@ const appsList = [
 const Apps = () => {
   return (
     <div>
-      <h3 className="title">Zerodha Universe Apps</h3>
+      <h3 className="title">Nexvoro Ecosystem Apps</h3>
       <p className="text-muted small mb-4">
         Our ecosystem of partner products to help you invest and trade better.
       </p>

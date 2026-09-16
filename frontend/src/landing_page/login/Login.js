@@ -66,12 +66,12 @@ function Login() {
             <div className="text-center mb-4">
               <img
                 src="/media/images/logo.svg"
-                alt="Zerodha"
-                style={{ width: "130px", marginBottom: "15px" }}
+                alt="Nexvoro"
+                style={{ height: "30px", marginBottom: "15px" }}
               />
-              <h2 className="fs-4 fw-bold mb-1">Login to Kite</h2>
+              <h2 className="fs-4 fw-bold mb-1">Login to Nexvoro Trade</h2>
               <p className="text-muted small">
-                Trade stocks, futures, options, and mutual funds
+                High-speed multi-asset terminal for modern investors
               </p>
             </div>
 
@@ -129,13 +129,13 @@ function Login() {
                 type="submit"
                 className="btn btn-primary w-100 py-2 fw-semibold mb-2"
                 style={{
-                  background: "var(--accent-primary, #387ed1)",
-                  borderColor: "var(--accent-primary, #387ed1)",
-                  borderRadius: "4px",
+                  background: "var(--accent-primary, #2563eb)",
+                  borderColor: "var(--accent-primary, #2563eb)",
+                  borderRadius: "6px",
                 }}
                 disabled={submitting || demoSubmitting}
               >
-                {submitting ? "Logging in..." : "Login"}
+                {submitting ? "Authenticating..." : "Sign In to Terminal"}
               </button>
 
               <div className="d-flex align-items-center my-3">
@@ -148,17 +148,17 @@ function Login() {
                 type="button"
                 onClick={handleDemoLogin}
                 className="btn btn-outline-success w-100 py-2 fw-semibold d-flex align-items-center justify-content-center gap-2"
-                style={{ borderRadius: "4px" }}
+                style={{ borderRadius: "6px" }}
                 disabled={submitting || demoSubmitting}
               >
                 <span>⚡</span>
-                <span>{demoSubmitting ? "Starting Demo..." : "One-Click Demo Trader Login"}</span>
+                <span>{demoSubmitting ? "Loading Session..." : "One-Click Demo Trader Login"}</span>
               </button>
             </form>
 
             <div className="text-center mt-4 pt-3 border-top">
               <p className="text-muted small mb-0">
-                Don't have a Kite account?{" "}
+                New to Nexvoro?{" "}
                 <Link to="/signup" className="text-primary fw-bold text-decoration-none">
                   Open an account now &rarr;
                 </Link>

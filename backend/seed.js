@@ -157,7 +157,7 @@ async function seedDB() {
       demoUser = new UserModel({
         fullName: "Demo Trader",
         username: "demo_trader",
-        email: "demo@zerodha-kite.com",
+        email: "demo@nexvoro.com",
         password: hashedPassword,
         funds: 100000,
       });

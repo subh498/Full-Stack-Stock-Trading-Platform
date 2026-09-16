@@ -4,58 +4,56 @@ import Hero from "./Hero";
 import LeftSection from "./LeftSection";
 import RightSection from "./RightSection";
 import Universe from "./Universe";
-import { DASHBOARD_URL } from "../../config";
 
-function PricingPage() {
+function ProductsPage() {
   return (
     <>
       <Hero />
       <LeftSection
-        imageURL="media/images/kite.png"
-        productName="Kite"
-        productDesription="Our ultra-fast flagship trading platform with streaming market data, advanced charts, an elegant UI, and more. Enjoy the Kite experience seamlessly on your Android and iOS devices."
-        tryDemo={DASHBOARD_URL}
-        learnMore="#"
+        imageURL="/media/images/kite.png"
+        productName="Nexvoro Web"
+        productDesription="Our flagship high-speed trading terminal featuring live market tick simulation, real-time margin validation, interactive charts, and an elegant dark/light interface."
+        tryDemo="/dashboard"
+        learnMore="/about"
         googlePlay="#"
         appStore="#"
       />
       <RightSection
-        imageURL="media/images/console.png"
-        productName="Console"
-        productDesription="The central dashboard for your Zerodha account. Gain insights into your trades and investments with in-depth reports and visualisations."
-        learnMore=""
+        imageURL="/media/images/console.png"
+        productName="Nexvoro Pulse"
+        productDesription="The central intelligence hub for your trading portfolio. Analyze holdings, track equity curves, and gain deep risk metrics with clean visualizations."
+        learnMore="/dashboard"
       />
       <LeftSection
-        imageURL="media/images/coin.png"
-        productName="Coin"
-        productDesription="Buy direct mutual funds online, commission-free, delivered directly to your Demat account. Enjoy the investment experience on your Android and iOS devices."
-        tryDemo=""
-        learnMore=""
-        googlePlay=""
-        appStore=""
+        imageURL="/media/images/coin.png"
+        productName="Nexvoro Assets"
+        productDesription="Commission-free direct mutual funds and thematic assets delivered straight to your demat account. Enjoy effortless systematic investment plans (SIP) on any device."
+        tryDemo="/dashboard/funds"
+        learnMore="/about"
+        googlePlay="#"
+        appStore="#"
       />
       <RightSection
-        imageURL="media/images/kiteconnect.png"
-        productName="Kite Connect API"
-        productDesription="Build powerful trading platforms and experiences with our super simple HTTP/JSON APIs. If you are a startup, build your investment app and showcase it to our clientbase."
-        learnMore=""
+        imageURL="/media/images/kiteconnect.png"
+        productName="Nexvoro Quant API"
+        productDesription="Ultra-fast REST and streaming WebSocket APIs for algorithmic traders and fintech developers. Automate custom trading strategies with deterministic execution."
+        learnMore="/about"
       />
       <LeftSection
-        imageURL="media/images/varsity.png"
-        productName="Varsity mobile"
-        productDesription="An easy to grasp, collection of stock market lessons with in-depth coverage and illustrations. Content is broken down into bite-size cards to help you learn on the go."
-        tryDemo=""
-        learnMore=""
-        googlePlay=""
-        appStore=""
+        imageURL="/media/images/varsity.png"
+        productName="Nexvoro Academy"
+        productDesription="An interactive, bite-sized market learning experience. Master technical analysis, options strategies, risk management, and quantitative finance on the go."
+        tryDemo="/about"
+        learnMore="/about"
+        googlePlay="#"
+        appStore="#"
       />
-      <p className="text-center mt-5 mb-5">
-        Want to know more about our technology stack? Check out the Zerodha.tech
-        blog.
+      <p className="text-center mt-5 mb-5 text-muted small">
+        Engineered with distributed cloud architecture. Learn more about our engineering at the Nexvoro Research Lab.
       </p>
       <Universe />
     </>
   );
 }
 
-export default PricingPage;
+export default ProductsPage;

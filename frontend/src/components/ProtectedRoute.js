@@ -23,10 +23,10 @@ const ProtectedRoute = ({ children }) => {
           role="status"
           style={{ width: "3rem", height: "3rem" }}
         >
-          <span className="visually-hidden">Loading Kite...</span>
+          <span className="visually-hidden">Loading Nexvoro...</span>
         </div>
         <p style={{ color: "var(--text-secondary, #666)", fontSize: "0.95rem" }}>
-          Connecting to Zerodha Kite Terminal...
+          Connecting to Nexvoro Trading Terminal...
         </p>
       </div>
     );
@@ -38,7 +38,7 @@ const ProtectedRoute = ({ children }) => {
         to="/login"
         state={{
           from: location,
-          message: "Please sign in with your Zerodha Kite credentials to access the trading terminal.",
+          message: "Please sign in with your Nexvoro credentials to access the trading terminal.",
         }}
         replace
       />

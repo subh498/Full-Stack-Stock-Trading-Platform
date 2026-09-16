@@ -28,7 +28,7 @@ app.use("/api", tradingRoutes);
 app.get("/", (req, res) => {
   res.json({
     status: "ok",
-    service: "Zerodha Clone Full-Stack Backend API",
+    service: "Nexvoro Trading Platform API",
     dbConnected: mongoose.connection.readyState === 1,
     endpoints: [
       "/api/auth/register",
@@ -75,7 +75,7 @@ app.delete("/order/:id", (req, res, next) => {
 
 // Start Server & Connect MongoDB
 app.listen(PORT, async () => {
-  console.log(`🚀 Zerodha Backend API running on port ${PORT}!`);
+  console.log(`🚀 Nexvoro Backend API running on port ${PORT}!`);
   try {
     if (!uri) {
       throw new Error("MONGO_URI environment variable is not defined.");

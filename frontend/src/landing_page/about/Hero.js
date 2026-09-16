@@ -2,58 +2,53 @@ import React from "react";
 
 function Hero() {
   return (
-    <div className="container">
-      <div className="row p-5 mt-5 mb-5">
-        <h1 className="fs-2 text-center">
-          We pioneered the discount broking model in India
+    <div className="container py-4">
+      <div className="row p-4 p-md-5 my-3 text-center">
+        <h1 className="fs-2 fw-bold mb-3" style={{ color: "var(--text-primary, #222)" }}>
+          Democratizing Institutional-Grade Trading &amp; Next-Gen Capital Markets
           <br />
-          Now, we are breaking ground with our technology.
+          <span className="fs-4 fw-normal text-muted">
+            High-frequency infrastructure meets intuitive retail accessibility.
+          </span>
         </h1>
       </div>
 
       <div
-        className="row p-5 mt-5 border-top text-muted"
-        style={{ lineHeight: "1.8", fontSize: "1.2em" }}
+        className="row p-4 p-md-5 mt-2 border-top text-muted"
+        style={{
+          lineHeight: "1.8",
+          fontSize: "1.1em",
+          borderColor: "var(--border-color, #eee)",
+        }}
       >
-        <div className="col-6 p-5">
+        <div className="col-lg-6 p-4">
           <p>
-            We kick-started operations on the 15th of August, 2010 with the goal
-            of breaking all barriers that traders and investors face in India in
-            terms of cost, support, and technology. We named the company
-            Zerodha, a combination of Zero and "Rodha", the Sanskrit word for
-            barrier.
+            Nexvoro was conceived with a clear mission: to bridge the technological divide between
+            top-tier quantitative hedge funds and modern retail investors. We bypassed outdated legacy
+            broker architectures in favor of an ultra-low latency, distributed cloud execution engine.
           </p>
           <p>
-            Today, our disruptive pricing models and in-house technology have
-            made us the biggest stock broker in India.
+            Today, Nexvoro delivers real-time market quotes, instant order execution, automated risk controls,
+            and comprehensive portfolio analytics with zero hidden fees and transparent pricing.
           </p>
           <p>
-            Over 1+ Crore clients place millions of orders every day through our
-            powerful ecosystem of investment platforms, contributing over 15% of
-            all Indian retail trading volumes.
+            Traders execute thousands of transactions daily through our intuitive web terminal and low-latency
+            developer APIs, enjoying seamless access to equity, derivatives, and mutual fund markets.
           </p>
         </div>
-        <div className="col-6 p-5">
+        <div className="col-lg-6 p-4">
           <p>
-            In addition, we run a number of popular open online educational and
-            community initiatives to empower retail traders and investors.
+            We believe intelligent investing should be accessible to everyone. Our platform integrates real-time
+            margin validation, automated risk controls, and intuitive visual analytics to make market engagement
+            seamless and transparent.
           </p>
           <p>
-            <a
-              href="https://rainmatter.com"
-              target="_blank"
-              rel="noreferrer"
-              style={{ textDecoration: "none" }}
-            >
-              Rainmatter
-            </a>
-            , our fintech fund and incubator, has invested in several fintech
-            startups with the goal of growing the Indian capital markets.
+            Through our open developer sandbox and algorithmic SDKs, traders can backtest strategies, connect
+            custom execution bots, and build on top of our high-speed market data pipes.
           </p>
           <p>
-            And yet, we are always up to something new every day. Catch up on
-            the latest updates on our blog or see what the media is saying about
-            us.
+            We are constantly engineering new capabilities—from smart bracket orders to portfolio health metrics.
+            Welcome to the future of retail trading with Nexvoro.
           </p>
         </div>
       </div>
