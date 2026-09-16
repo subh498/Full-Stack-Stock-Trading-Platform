@@ -4,7 +4,7 @@ import Hero from "./Hero";
 import LeftSection from "./LeftSection";
 import RightSection from "./RightSection";
 import Universe from "./Universe";
-
+import { DASHBOARD_URL } from "../../config";
 
 function PricingPage() {
   return (
@@ -14,10 +14,10 @@ function PricingPage() {
         imageURL="media/images/kite.png"
         productName="Kite"
         productDesription="Our ultra-fast flagship trading platform with streaming market data, advanced charts, an elegant UI, and more. Enjoy the Kite experience seamlessly on your Android and iOS devices."
-        tryDemo="http://localhost:3001"
-        learnMore=""
-        googlePlay=""
-        appStore=""
+        tryDemo={DASHBOARD_URL}
+        learnMore="#"
+        googlePlay="#"
+        appStore="#"
       />
       <RightSection
         imageURL="media/images/console.png"

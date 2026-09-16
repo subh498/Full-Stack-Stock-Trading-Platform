@@ -187,34 +187,90 @@ app.use(bodyParser.json());
 //   res.send("Done!");
 // });
 
+app.get("/", (req, res) => {
+  res.json({
+    status: "ok",
+    service: "Zerodha Clone Backend API",
+    dbConnected: mongoose.connection.readyState === 1,
+  });
+});
+
 app.get("/allHoldings", async (req, res) => {
-  let allHoldings = await HoldingsModel.find({});
-  res.json(allHoldings);
+  try {
+    let allHoldings = await HoldingsModel.find({});
+    res.json(allHoldings);
+  } catch (err) {
+    console.error("Error fetching holdings:", err);
+    res.status(500).json({ error: "Failed to fetch holdings" });
+  }
 });
 
 app.get("/allPositions", async (req, res) => {
-  let allPositions = await PositionsModel.find({});
-  res.json(allPositions);
+  try {
+    let allPositions = await PositionsModel.find({});
+    res.json(allPositions);
+  } catch (err) {
+    console.error("Error fetching positions:", err);
+    res.status(500).json({ error: "Failed to fetch positions" });
+  }
 });
 
 app.get("/allOrders", async (req, res) => {
-  let allOrders = await OrdersModel.find({});
-  res.json(allOrders);
+  try {
+    let allOrders = await OrdersModel.find({}).sort({ createdAt: -1, _id: -1 });
+    res.json(allOrders);
+  } catch (err) {
+    console.error("Error fetching orders:", err);
+    res.status(500).json({ error: "Failed to fetch orders" });
+  }
 });
 
 app.post("/newOrder", async (req, res) => {
   try {
-    let newOrder = new OrdersModel({
-      name: req.body.name,
-      qty: req.body.qty,
-      price: req.body.price,
-      mode: req.body.mode,
+    const { name, qty, price, mode = "BUY" } = req.body;
+
+    const parsedQty = Number(qty);
+    const parsedPrice = Number(price);
+
+    if (!name || isNaN(parsedQty) || parsedQty <= 0 || isNaN(parsedPrice) || parsedPrice <= 0) {
+      return res.status(400).json({
+        success: false,
+        error: "Invalid order details. Please provide a valid stock name, positive quantity, and price.",
+      });
+    }
+
+    const orderMode = String(mode).toUpperCase() === "SELL" ? "SELL" : "BUY";
+
+    const newOrder = new OrdersModel({
+      name: String(name).trim().toUpperCase(),
+      qty: parsedQty,
+      price: parsedPrice,
+      mode: orderMode,
     });
 
-    await newOrder.save();
-    res.send("Order saved!");
+    const savedOrder = await newOrder.save();
+    res.status(201).json({
+      success: true,
+      message: "Order placed successfully!",
+      order: savedOrder,
+    });
   } catch (err) {
-    res.status(500).json({ error: "Failed to save order" });
+    console.error("Error saving order:", err);
+    res.status(500).json({ success: false, error: "Failed to save order" });
+  }
+});
+
+app.delete("/order/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleted = await OrdersModel.findByIdAndDelete(id);
+    if (!deleted) {
+      return res.status(404).json({ success: false, error: "Order not found" });
+    }
+    res.json({ success: true, message: "Order canceled successfully!", id });
+  } catch (err) {
+    console.error("Error deleting order:", err);
+    res.status(500).json({ success: false, error: "Failed to delete order" });
   }
 });
 

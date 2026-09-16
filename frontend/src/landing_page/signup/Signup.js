@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { DASHBOARD_URL } from "../../config";
 
 function Signup() {
   const [mobile, setMobile] = useState("");
@@ -6,7 +7,7 @@ function Signup() {
   const handleContinue = (e) => {
     e.preventDefault();
     if (mobile.length >= 10) {
-      window.location.href = "http://localhost:3001";
+      window.location.href = DASHBOARD_URL;
     } else {
       alert("Please enter a valid 10-digit mobile number");
     }
@@ -55,7 +56,7 @@ function Signup() {
             <p className="text-muted small">
               Already have an account?{" "}
               <a
-                href="http://localhost:3001"
+                href={DASHBOARD_URL}
                 className="text-primary font-weight-bold"
               >
                 Go directly to Kite Dashboard &rarr;

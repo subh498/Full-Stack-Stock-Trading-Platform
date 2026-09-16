@@ -180,6 +180,10 @@
   .btn-blue {
     background: #4184f3;
   }
+
+  .btn-red {
+    background: #ff5722;
+  }
   
   /* sudo selectors */
   .tab button::after {
