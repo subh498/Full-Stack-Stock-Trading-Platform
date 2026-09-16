@@ -20,10 +20,13 @@ import Footer from "./landing_page/Footer";
 
 import NexvoroHome from "./dashboard/Home";
 
+import LiveMarketRibbon from "./components/LiveMarketRibbon";
+
 // Layout wrapper for public marketing & authentication pages
 const PublicLayout = ({ children }) => {
   return (
     <>
+      <LiveMarketRibbon />
       <Navbar />
       <main style={{ minHeight: "calc(100vh - 140px)" }}>{children}</main>
       <Footer />

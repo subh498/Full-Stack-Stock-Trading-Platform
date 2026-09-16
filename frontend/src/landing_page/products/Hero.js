@@ -1,20 +1,29 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Hero() {
   return (
-    <div className="container border-bottom mb-5">
-      <div className="text-center mt-5 p-3">
-        <h1>Technology</h1>
-        <h3 className="text-muted mt-3 fs-4">
-          Sleek, modern and intuitive trading platforms
-        </h3>
-        <p className="mt-3 mb-5">
-          Check out our{" "}
-          <a href="#offerings" style={{ textDecoration: "none" }}>
-            investment offerings{" "}
-            <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
-          </a>
-        </p>
+    <div className="container py-5 text-center">
+      <div className="row justify-content-center">
+        <div className="col-lg-9">
+          <div className="badge-pill-glow mb-3">
+            <span className="pulse-dot"></span>
+            <span>THE NEXVORO ECOSYSTEM • MULTI-PLATFORM SUITE</span>
+          </div>
+          <h1 className="fw-bold mb-3 display-5" style={{ color: "var(--text-primary)" }}>
+            Quantitative Infrastructure &amp;{" "}
+            <span className="hero-gradient-text">Algorithmic Tooling</span>
+          </h1>
+          <p className="lead text-muted mx-auto mb-4" style={{ maxWidth: "680px", fontSize: "1.12rem" }}>
+            From high-speed web terminals to low-latency developer APIs and thematic asset management,
+            experience deterministic execution across all market cycles.
+          </p>
+          <div className="d-flex justify-content-center gap-3">
+            <Link to="/dashboard" className="btn-nexvoro-primary btn-sm px-4 py-2 text-decoration-none">
+              ⚡ Launch Live Web Terminal
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

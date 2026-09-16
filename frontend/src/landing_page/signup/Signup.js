@@ -66,15 +66,7 @@ function Signup() {
         </div>
 
         <div className="col-lg-5">
-          <div
-            className="p-4 p-md-5 rounded shadow-sm"
-            style={{
-              background: "var(--card-bg, #ffffff)",
-              border: "1px solid var(--border-color, #e0e3eb)",
-              color: "var(--text-primary, #333333)",
-              borderRadius: "12px",
-            }}
-          >
+          <div className="nexvoro-card p-4 p-md-5 shadow-lg">
             <h1 className="fs-3 mb-2 fw-bold">Open Nexvoro Account</h1>
             <p className="text-muted small mb-4">
               Instant digital demat &amp; trading access in under 2 minutes
@@ -142,15 +134,10 @@ function Signup() {
 
               <button
                 type="submit"
-                className="btn btn-primary w-100 py-2 fw-semibold"
-                style={{
-                  background: "var(--accent-primary, #2563eb)",
-                  borderColor: "var(--accent-primary, #2563eb)",
-                  borderRadius: "6px",
-                }}
+                className="btn-nexvoro-primary w-100 py-2 fw-semibold"
                 disabled={submitting}
               >
-                {submitting ? "Opening Account..." : "Create Account & Start Trading"}
+                {submitting ? "Creating Account..." : "Create Free Account &rarr;"}
               </button>
             </form>
 

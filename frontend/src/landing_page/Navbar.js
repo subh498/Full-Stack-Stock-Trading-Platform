@@ -13,19 +13,12 @@ function Navbar() {
   };
 
   return (
-    <nav
-      className="navbar navbar-expand-lg border-bottom sticky-top py-2"
-      style={{
-        backgroundColor: "var(--bg-primary, #FFF)",
-        borderColor: "var(--border-color, #f0f0f0)",
-        transition: "background-color 0.2s ease, border-color 0.2s ease",
-      }}
-    >
+    <nav className="navbar navbar-expand-lg glass-navbar sticky-top py-2">
       <div className="container">
         <Link className="navbar-brand d-flex align-items-center gap-2" to="/">
           <img
             src="/media/images/logo.svg"
-            style={{ height: "24px", width: "auto" }}
+            style={{ height: "26px", width: "auto" }}
             alt="Nexvoro"
           />
         </Link>

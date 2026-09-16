@@ -5,22 +5,44 @@ function OpenAccount() {
   const navigate = useNavigate();
 
   return (
-    <div className="container py-5 my-3">
-      <div className="row text-center justify-content-center">
-        <div className="col-lg-8">
-          <h2 className="fs-1 fw-bold mt-4 mb-3" style={{ color: "var(--text-primary)" }}>
-            Open a Nexvoro Account
-          </h2>
-          <p className="text-muted fs-5 mb-4">
-            Modern trading infrastructure, ₹0 equity investment brokerage, and flat ₹20 for intraday and F&amp;O trades.
-          </p>
-          <button
-            className="btn btn-primary px-4 py-2 fs-6 fw-semibold mb-4"
-            style={{ minWidth: "200px", borderRadius: "6px" }}
-            onClick={() => navigate("/signup")}
+    <div className="container py-5 my-4">
+      <div className="row justify-content-center">
+        <div className="col-lg-10">
+          <div
+            className="nexvoro-card p-5 text-center shadow-lg"
+            style={{
+              background:
+                "linear-gradient(135deg, var(--card-bg) 0%, rgba(37, 99, 235, 0.08) 100%)",
+              border: "1px solid rgba(56, 189, 248, 0.25)",
+            }}
           >
-            Start Trading with Nexvoro &rarr;
-          </button>
+            <div className="badge-pill-glow mb-3">
+              <span className="pulse-dot"></span>
+              <span>INSTANT DIGITAL ONBOARDING</span>
+            </div>
+            <h2 className="display-6 fw-bold mb-3" style={{ color: "var(--text-primary)" }}>
+              Open Your <span className="hero-gradient-text">Nexvoro Trading Account</span>
+            </h2>
+            <p className="lead text-muted mb-4 mx-auto" style={{ maxWidth: "620px", fontSize: "1.1rem" }}>
+              Experience next-gen execution, ₹0 equity delivery brokerage, and sub-millisecond
+              order routing in under 2 minutes.
+            </p>
+            <div className="d-flex flex-wrap justify-content-center gap-3">
+              <button
+                className="btn-nexvoro-primary px-4 py-2"
+                onClick={() => navigate("/signup")}
+              >
+                <span>Start Trading Free</span>
+                <span>&rarr;</span>
+              </button>
+              <button
+                className="btn-nexvoro-outline px-4 py-2"
+                onClick={() => navigate("/dashboard")}
+              >
+                <span>⚡ Test Demo Terminal</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

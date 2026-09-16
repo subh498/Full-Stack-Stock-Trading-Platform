@@ -54,15 +54,7 @@ function Login() {
     <div className="container py-5 my-4">
       <div className="row justify-content-center align-items-center">
         <div className="col-lg-5 col-md-7">
-          <div
-            className="card p-4 p-md-5 shadow-sm border-0"
-            style={{
-              borderRadius: "12px",
-              background: "var(--card-bg, #ffffff)",
-              border: "1px solid var(--border-color, #e0e3eb)",
-              color: "var(--text-primary, #333333)",
-            }}
-          >
+          <div className="nexvoro-card p-4 p-md-5 shadow-lg">
             <div className="text-center mb-4">
               <img
                 src="/media/images/logo.svg"
@@ -127,12 +119,7 @@ function Login() {
 
               <button
                 type="submit"
-                className="btn btn-primary w-100 py-2 fw-semibold mb-2"
-                style={{
-                  background: "var(--accent-primary, #2563eb)",
-                  borderColor: "var(--accent-primary, #2563eb)",
-                  borderRadius: "6px",
-                }}
+                className="btn-nexvoro-primary w-100 py-2 fw-semibold mb-2"
                 disabled={submitting || demoSubmitting}
               >
                 {submitting ? "Authenticating..." : "Sign In to Terminal"}
@@ -148,7 +135,12 @@ function Login() {
                 type="button"
                 onClick={handleDemoLogin}
                 className="btn btn-outline-success w-100 py-2 fw-semibold d-flex align-items-center justify-content-center gap-2"
-                style={{ borderRadius: "6px" }}
+                style={{
+                  borderRadius: "8px",
+                  borderColor: "var(--accent-bull)",
+                  color: "var(--accent-bull)",
+                  background: "var(--bull-bg)",
+                }}
                 disabled={submitting || demoSubmitting}
               >
                 <span>⚡</span>
