@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zerodha Clone - Project Overview & Information</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --primary: #387ed1;
+      --primary-dark: #245ea3;
+      --navy: #1e293b;
+      --text-main: #334155;
+      --text-light: #64748b;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --success: #10b981;
+      --danger: #ef4444;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      padding: 40px 50px;
+      border: 1px solid var(--border);
+    }
+
+    .header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-text h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      background: #e0f2fe;
+      color: #0369a1;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .header-text p {
+      color: var(--text-light);
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    .print-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .print-btn:hover {
+      background-color: var(--primary-dark);
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-top: 28px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-left: 4px solid var(--primary);
+      padding-left: 10px;
+    }
+
+    p {
+      font-size: 14px;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+      margin: 16px 0;
+    }
+
+    .card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: var(--text-light);
+      margin: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 13px;
+    }
+
+    th, td {
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background-color: #f1f5f9;
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background-color: #f8fafc;
+    }
+
+    .code {
+      font-family: 'Courier New', Courier, monospace;
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #0f172a;
+    }
+
+    .method {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 11px;
+    }
+
+    .method-get {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    .method-post {
+      background: #dbeafe;
+      color: #1d4ed8;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-bottom: 16px;
+    }
+
+    li {
+      font-size: 13.5px;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    .footer {
+      margin-top: 36px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-light);
+      text-align: center;
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .container {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+      .print-btn {
+        display: none;
+      }
+      h2 {
+        page-break-after: avoid;
+      }
+      table, .card-grid {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-text">
+        <h1>Zerodha Clone <span class="badge">MERN Stack</span></h1>
+        <p>Full-Stack Stock Trading & Brokerage Ecosystem Overview</p>
+      </div>
+      <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+
+    <h2>1. Executive Project Summary</h2>
+    <p>
+      This project is an end-to-end full-stack clone of <strong>Zerodha</strong>, India's largest discount stockbroker.
+      It combines a comprehensive marketing website, a dynamic trading console (Kite clone) featuring live-look market watchlists, 
+      quick buy/sell execution, portfolio holdings, open positions, funds management, and analytical visualizations.
+    </p>
+
+    <h2>2. Architecture & Modules</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>🌐 Frontend (Marketing)</h3>
+        <p><strong>Port:</strong> 3000</p>
+        <p><strong>Tech:</strong> React.js, React Router, Bootstrap</p>
+        <p>Zerodha landing pages: Home, Products, Pricing, Support, About Us, Signup.</p>
+      </div>
+      <div class="card">
+        <h3>📊 Dashboard (Kite Console)</h3>
+        <p><strong>Port:</strong> 3001</p>
+        <p><strong>Tech:</strong> React.js, Chart.js, Axios, Context API</p>
+        <p>Live Watchlist, Buy modal, Orders, Holdings & Positions tracking, Funds margin.</p>
+      </div>
+      <div class="card">
+        <h3>⚙️ Backend Engine</h3>
+        <p><strong>Port:</strong> 3002</p>
+        <p><strong>Tech:</strong> Node.js, Express.js, Mongoose</p>
+        <p>REST API handlers for order management, data models, and database persistence.</p>
+      </div>
+      <div class="card">
+        <h3>🗄️ Database</h3>
+        <p><strong>Engine:</strong> MongoDB Atlas</p>
+        <p><strong>Collections:</strong> Holdings, Positions, Orders</p>
+        <p>Stores stock portfolio records, executed orders, and trading positions.</p>
+      </div>
+    </div>
+
+    <h2>3. Core Features</h2>
+    <ul>
+      <li><strong>Watchlist & Market Ticker:</strong> Displays real-time stock symbols, daily percentage fluctuations, and quick-action buttons on hover.</li>
+      <li><strong>Interactive Buy/Sell Modal:</strong> Enables users to input desired share quantities and limit prices to place instant orders.</li>
+      <li><strong>Holdings Portfolio:</strong> Aggregates total stock units, average purchase price, current market valuation, net profit/loss, and portfolio allocation charts.</li>
+      <li><strong>Day Positions Tracking:</strong> Distinguishes between intraday (MIS) and overnight delivery (CNC) trades.</li>
+      <li><strong>Funds & Margin Overview:</strong> Provides instant breakdown of equity and commodity balances and margin requirements.</li>
+      <li><strong>Data Visualization:</strong> Doughnut charts representing asset distributions and vertical bar charts representing portfolio trends.</li>
+    </ul>
+
+    <h2>4. REST API Specifications</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Endpoint</th>
+          <th>Method</th>
+          <th>Payload / Response</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="code">/allHoldings</span></td>
+          <td><span class="method method-get">GET</span></td>
+          <td>Array of Holding Objects</td>
+          <td>Returns list of all active stock holdings and current market prices.</td>
+        </tr>
+        <tr>
+          <td><span class="code">/allPositions</span></td>
+          <td><span class="method method-get">GET</span></td>
+          <td>Array of Position Objects</td>
+          <td>Fetches all active open positions (intraday & delivery).</td>
+        </tr>
+        <tr>
+          <td><span class="code">/allOrders</span></td>
+          <td><span class="method method-get">GET</span></td>
+          <td>Array of Order Objects</td>
+          <td>Retrieves historical and recently placed orders.</td>
+        </tr>
+        <tr>
+          <td><span class="code">/newOrder</span></td>
+          <td><span class="method method-post">POST</span></td>
+          <td><code>{ name, qty, price, mode }</code></td>
+          <td>Submits and saves a new buy or sell order into MongoDB.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>5. Local Setup & Execution Guide</h2>
+    <ul>
+      <li><strong>Backend:</strong> <span class="code">cd backend</span> &rarr; <span class="code">npm install</span> &rarr; <span class="code">npm start</span> (Runs at <code>http://localhost:3002</code>)</li>
+      <li><strong>Dashboard:</strong> <span class="code">cd dashboard</span> &rarr; <span class="code">npm install</span> &rarr; <span class="code">npm start</span> (Runs at <code>http://localhost:3001</code>)</li>
+      <li><strong>Frontend:</strong> <span class="code">cd frontend</span> &rarr; <span class="code">npm install</span> &rarr; <span class="code">npm start</span> (Runs at <code>http://localhost:3000</code>)</li>
+    </ul>
+
+    <div class="footer">
+      Generated for Zerodha Clone Repository &bull; Subh498 / Full-Stack-Stock-Trading-Platform &bull; 2026
+    </div>
+  </div>
+</body>
+</html>
