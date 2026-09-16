@@ -1,7 +1,10 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 const { HoldingsModel } = require("./model/HoldingsModel");
 const { PositionsModel } = require("./model/PositionsModel");
+const { UserModel } = require("./model/UserModel");
+const { OrdersModel } = require("./model/OrdersModel");
 
 const uri = process.env.MONGO_URI || process.env.MONGO_URL;
 
@@ -142,25 +145,50 @@ const positionsData = [
 
 async function seedDB() {
   try {
+    console.log("Connecting to MongoDB...");
     await mongoose.connect(uri);
-    console.log("Connected to MongoDB successfully at:", uri);
+    console.log("Connected to MongoDB successfully!");
 
-    // Clear existing data
-    await HoldingsModel.deleteMany({});
-    await PositionsModel.deleteMany({});
-    console.log("Cleared existing holdings and positions.");
+    // Seed Demo User
+    let demoUser = await UserModel.findOne({ username: "demo_trader" });
+    if (!demoUser) {
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash("Password123!", salt);
+      demoUser = new UserModel({
+        fullName: "Demo Trader",
+        username: "demo_trader",
+        email: "demo@zerodha-kite.com",
+        password: hashedPassword,
+        funds: 100000,
+      });
+      await demoUser.save();
+      console.log("✅ Seeded demo user: demo_trader / Password123! (Funds: ₹1,00,000)");
+    } else {
+      console.log("ℹ️ Demo user already exists.");
+    }
 
-    // Insert data
-    await HoldingsModel.insertMany(holdingsData);
-    console.log(`Inserted ${holdingsData.length} holdings into MongoDB!`);
+    // Refresh holdings if empty
+    const holdingsCount = await HoldingsModel.countDocuments();
+    if (holdingsCount === 0) {
+      await HoldingsModel.insertMany(holdingsData);
+      console.log(`✅ Seeded ${holdingsData.length} holdings into MongoDB.`);
+    } else {
+      console.log(`ℹ️ Holdings already present (${holdingsCount} records).`);
+    }
 
-    await PositionsModel.insertMany(positionsData);
-    console.log(`Inserted ${positionsData.length} positions into MongoDB!`);
+    // Refresh positions if empty
+    const positionsCount = await PositionsModel.countDocuments();
+    if (positionsCount === 0) {
+      await PositionsModel.insertMany(positionsData);
+      console.log(`✅ Seeded ${positionsData.length} positions into MongoDB.`);
+    } else {
+      console.log(`ℹ️ Positions already present (${positionsCount} records).`);
+    }
 
-    console.log("Database seeded successfully! You can now check MongoDB Compass (db: zerodha).");
+    console.log("🚀 Database seeding completed successfully!");
     process.exit(0);
   } catch (err) {
-    console.error("Error seeding database:", err);
+    console.error("❌ Error seeding database:", err);
     process.exit(1);
   }
 }

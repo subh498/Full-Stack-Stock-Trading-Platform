@@ -1,0 +1,19 @@
+{
+  "name": "full-stack-stock-trading-platform",
+  "version": "1.0.0",
+  "description": "Full-Stack Zerodha Kite Clone Trading Platform",
+  "scripts": {
+    "dev": "concurrently -n \"BACKEND,FRONTEND\" -c \"bgBlue.bold,bgGreen.bold\" \"npm run dev --prefix backend\" \"npm start --prefix frontend\"",
+    "start": "concurrently -n \"BACKEND,FRONTEND\" -c \"bgBlue.bold,bgGreen.bold\" \"npm start --prefix backend\" \"npm start --prefix frontend\"",
+    "start:server": "npm start --prefix backend",
+    "start:client": "npm start --prefix frontend",
+    "seed": "npm run seed --prefix backend",
+    "build:frontend": "npm run build --prefix frontend",
+    "install:all": "npm install && npm install --prefix backend && npm install --prefix frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "author": "",
+  "license": "ISC"
+}

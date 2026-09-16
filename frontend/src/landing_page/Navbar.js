@@ -1,77 +1,144 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { DASHBOARD_URL } from "../config";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import ThemeToggle from "../components/ThemeToggle";
 
 function Navbar() {
+  const { isAuthenticated, user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
+
   return (
     <nav
-      className="navbar navbar-expand-lg border-bottom sticky-top"
-      style={{ backgroundColor: "#FFF" }}
+      className="navbar navbar-expand-lg border-bottom sticky-top py-2"
+      style={{
+        backgroundColor: "var(--bg-primary, #FFF)",
+        borderColor: "var(--border-color, #f0f0f0)",
+        transition: "background-color 0.2s ease, border-color 0.2s ease",
+      }}
     >
-      <div className="container p-2">
-        <Link className="navbar-brand" to="/">
+      <div className="container">
+        <Link className="navbar-brand d-flex align-items-center" to="/">
           <img
-            src="media/images/logo.svg"
-            style={{ width: "25%" }}
-            alt="Logo"
+            src="/media/images/logo.svg"
+            style={{ height: "18px" }}
+            alt="Zerodha"
           />
         </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+
+        <div className="d-flex align-items-center d-lg-none gap-2">
+          <ThemeToggle />
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+        </div>
+
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <form className="d-flex" role="search">
-            <ul className="navbar-nav mb-lg-0">
-              <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/signup">
-                  Signup
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link active" to="/about">
-                  About
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link active" to="/product">
-                  Product
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link active" to="/pricing">
-                  Pricing
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link active" to="/support">
-                  Support
-                </Link>
-              </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link active text-primary font-weight-bold"
-                  href={DASHBOARD_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <i className="fa fa-line-chart mr-1"></i> Dashboard
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link active" href="/">
-                  <i className="fa fa-bars"></i>
-                </a>
-              </li>
-            </ul>
-          </form>
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-1">
+            <li className="nav-item">
+              <Link className="nav-link" to="/about">
+                About
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/product">
+                Products
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/pricing">
+                Pricing
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/support">
+                Support
+              </Link>
+            </li>
+
+            {isAuthenticated ? (
+              <>
+                <li className="nav-item ms-lg-2">
+                  <Link
+                    to="/dashboard"
+                    className="btn btn-primary btn-sm px-3 py-1 fw-semibold d-flex align-items-center gap-2"
+                    style={{
+                      backgroundColor: "var(--accent-primary, #387ed1)",
+                      borderColor: "var(--accent-primary, #387ed1)",
+                      borderRadius: "4px",
+                    }}
+                  >
+                    <span>📊 Kite Dashboard</span>
+                  </Link>
+                </li>
+                <li className="nav-item ms-lg-2 dropdown">
+                  <div className="d-flex align-items-center gap-2 py-1 px-2">
+                    <span
+                      style={{
+                        width: "28px",
+                        height: "28px",
+                        borderRadius: "50%",
+                        backgroundColor: "#e8f0fe",
+                        color: "#1a73e8",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "0.75rem",
+                        fontWeight: 700,
+                      }}
+                    >
+                      {user?.username?.slice(0, 2)?.toUpperCase() || "TR"}
+                    </span>
+                    <button
+                      onClick={handleLogout}
+                      className="btn btn-outline-secondary btn-sm py-0 px-2"
+                      style={{ fontSize: "0.8rem" }}
+                      title="Log out"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="nav-item ms-lg-2">
+                  <Link className="nav-link fw-semibold text-primary" to="/login">
+                    Login
+                  </Link>
+                </li>
+                <li className="nav-item ms-lg-1">
+                  <Link
+                    className="btn btn-primary btn-sm px-3 py-1 fw-semibold"
+                    to="/signup"
+                    style={{
+                      backgroundColor: "var(--accent-primary, #387ed1)",
+                      borderColor: "var(--accent-primary, #387ed1)",
+                      borderRadius: "4px",
+                    }}
+                  >
+                    Sign up
+                  </Link>
+                </li>
+              </>
+            )}
+
+            <li className="nav-item ms-lg-3 d-none d-lg-block">
+              <ThemeToggle />
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
